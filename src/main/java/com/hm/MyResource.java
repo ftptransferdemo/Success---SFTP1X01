@@ -20,7 +20,7 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-      //  return "Hello, This is my sample application on Heroku to push fies from Salesforce to directories!";
-    	return System.getenv("SFTPHOST")+System.getenv("SFTPPORT")+System.getenv("SFTPUSER")+System.getenv("SFTPPASS")+System.getenv("SFTPWORKINGDIR");
+        return "Hello, This is my sample application on Heroku to push fies from Salesforce to directories!";
+    	// return System.getenv("SFTPHOST")+System.getenv("SFTPPORT")+System.getenv("SFTPUSER")+System.getenv("SFTPPASS")+System.getenv("SFTPWORKINGDIR");
     }
 }
