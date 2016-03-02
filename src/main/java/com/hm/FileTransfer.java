@@ -42,7 +42,7 @@ public class FileTransfer {
     	String SFTPWORKINGDIR = "/FTP/";
     	  */
     	String SFTPHOST=System.getenv("SFTPHOST");
-    	int    SFTPPORT = Integer.valueOf(System.getenv("SFTPHOST"));
+    	int    SFTPPORT = Integer.valueOf(System.getenv("SFTPPORT"));
     	String SFTPUSER=System.getenv("SFTPUSER");
     	String SFTPPASS=System.getenv("SFTPPASS");
     	String SFTPWORKINGDIR=System.getenv("SFTPWORKINGDIR");
