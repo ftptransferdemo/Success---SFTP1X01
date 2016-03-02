@@ -35,12 +35,18 @@ public class FileTransfer {
     {     
     	System.out.println("file name is **** "+filename);
     	// variable to connect to sftp
-    	String SFTPHOST = "182.19.57.244";
+    /*	String SFTPHOST = "182.19.57.244";
     	int    SFTPPORT = 22;
     	String SFTPUSER = "Cloudlendingturner";
     	String SFTPPASS = "Cloudlending@321";
     	String SFTPWORKINGDIR = "/FTP/";
-    	 
+    	  */
+    	String SFTPHOST=System.getenv("SFTPHOST");
+    	int    SFTPPORT = Integer.valueOf(System.getenv("SFTPHOST"));
+    	String SFTPUSER=System.getenv("SFTPUSER");
+    	String SFTPPASS=System.getenv("SFTPPASS");
+    	String SFTPWORKINGDIR=System.getenv("SFTPWORKINGDIR");
+
     	Session     session     = null;
     	Channel     channel     = null;
     	ChannelSftp channelSftp = null;
@@ -116,26 +122,7 @@ public class FileTransfer {
 
 			e.printStackTrace();
 		}  
-	/*	try {
-	        client.connect("10.16.1.51");
-			login = client.login("web", "Password@321");
-	        System.out.println("login status is "+login);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("*** entered into catch block while connecting "+e);
-			e.printStackTrace();
-
-		}
- */
-      /*  OutputStream out = new FileOutputStream(new File(UPLOAD_PATH + fileMetaData.getFileName()));
-        while ((read = fileInputStream.read(bytes)) != -1) 
-        {
-            out.write(bytes, 0, read);
-        }
-        out.flush();
-        out.close();
-     */
+	
         return "done";
     }
 
