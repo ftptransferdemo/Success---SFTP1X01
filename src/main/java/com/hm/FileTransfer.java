@@ -33,6 +33,7 @@ public class FileTransfer {
     @Consumes("*/*")
     public String uploadPdfFile(InputStream fileInputStream,@PathParam("filename") String filename) 
     {     
+    	try{
     	System.out.println("file name is **** "+filename);
     	// variable to connect to sftp
     	String SFTPHOST=System.getenv("SFTPHOST");
@@ -120,6 +121,13 @@ public class FileTransfer {
 			 }  
 	
         return "Success - SFTP1X01";
+    	}
+    	catch (Exception e) {
+			System.out.println("*** entered into final catch block while IOException "+e);
+			e.printStackTrace();
+			return "ERROR - EFTP1X01 - Unhandled Exception: "+e;
+
+ }  
     }
 
 
