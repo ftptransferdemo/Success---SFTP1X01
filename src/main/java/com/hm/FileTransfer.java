@@ -83,9 +83,11 @@ public class FileTransfer {
 	            channelSftp.put(new FileInputStream(file), file.getName());
 				}catch(JSchException ex){
 				ex.printStackTrace();
+				System.out.println("*** entered into catch block while JSchException "+ex);
 				return "ERROR - EFTP1X01 - JSchException"+ex;
 				} catch (SftpException e) {
 					e.printStackTrace();
+					System.out.println("*** entered into catch block while SftpException "+e);
 					return "ERROR - EFTP1X01 - SftpException"+e;
 
 				}
