@@ -81,16 +81,18 @@ public class FileTransfer {
 	            channelSftp.cd(SFTPWORKINGDIR);
 	         //   File f = new  File("D:/test004hm.txt");
 	            channelSftp.put(new FileInputStream(file), file.getName());
-				}catch(JSchException ex){
-				ex.printStackTrace();
-				System.out.println("*** entered into catch block while JSchException "+ex);
-				return "ERROR - EFTP1X01 - JSchException"+ex;
-				} catch (SftpException e) {
+				}
+				catch (SftpException e) {
 					e.printStackTrace();
 					System.out.println("*** entered into catch block while SftpException "+e);
+	
 					return "ERROR - EFTP1X01 - SftpException"+e;
 
-				}
+				}catch(JSchException ex){
+					ex.printStackTrace();
+					System.out.println("*** entered into catch block while JSchException "+ex);
+					return "ERROR - EFTP1X01 - JSchException"+ex;
+					} 
 				} catch (FileNotFoundException e1) {
 					System.out.println("*** entered into catch block while file not found "+e1);
 		
@@ -103,7 +105,13 @@ public class FileTransfer {
 					return "ERROR - EFTP1X01 - FileNotFoundException"+e;
 
 				}  
+					catch (Exception e) {
+						System.out.println("*** entered into catch block while IOException "+e);
+						e.printStackTrace();
+						return "ERROR - EFTP1X01 - Unhandled Exception "+e;
 			
+					}  
+	
         return "Success - SFTP1X01";
     }
 
