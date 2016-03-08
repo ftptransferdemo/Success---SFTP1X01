@@ -40,7 +40,8 @@ public class FileTransfer {
     	String SFTPUSER=System.getenv("SFTPUSER");
     	String SFTPPASS=System.getenv("SFTPPASS");
     	String SFTPWORKINGDIR=System.getenv("SFTPWORKINGDIR");
-
+    	
+    	System.out.println("*** port number is "+SFTPPORT);
     	Session     session     = null;
     	Channel     channel     = null;
     	ChannelSftp channelSftp = null;
@@ -116,7 +117,7 @@ public class FileTransfer {
 						e.printStackTrace();
 						return "ERROR - EFTP1X01 - Unhandled Exception: "+e;
 			
-					}  
+			 }  
 	
         return "Success - SFTP1X01";
     }
