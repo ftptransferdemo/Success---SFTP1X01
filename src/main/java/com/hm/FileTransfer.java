@@ -86,29 +86,35 @@ public class FileTransfer {
 					e.printStackTrace();
 					System.out.println("*** entered into catch block while SftpException "+e);
 	
-					return "ERROR - EFTP1X01 - SftpException"+e;
+					return "ERROR - EFTP1X01 - SftpException: "+e;
 
 				}catch(JSchException ex){
 					ex.printStackTrace();
-					System.out.println("*** entered into catch block while JSchException "+ex);
-					return "ERROR - EFTP1X01 - JSchException"+ex;
+					System.out.println("*** entered into catch block while JSchException: "+ex);
+					return "ERROR - EFTP1X01 - JSchException: "+ex;
 					} 
+				catch (Exception e) {
+					System.out.println("*** entered into catch block while IOException "+e);
+					e.printStackTrace();
+					return "ERROR - EFTP1X01 - Unhandled Exception: "+e;
+		
+				}  
 				} catch (FileNotFoundException e1) {
 					System.out.println("*** entered into catch block while file not found "+e1);
 		
 					e1.printStackTrace();
-					return "ERROR - EFTP1X01 - FileNotFoundException"+e1;
+					return "ERROR - EFTP1X01 - FileNotFoundException: "+e1;
 
 				} catch (IOException e) {
 					System.out.println("*** entered into catch block while IOException "+e);
 					e.printStackTrace();
-					return "ERROR - EFTP1X01 - FileNotFoundException"+e;
+					return "ERROR - EFTP1X01 - FileNotFoundException: "+e;
 
 				}  
 					catch (Exception e) {
 						System.out.println("*** entered into catch block while IOException "+e);
 						e.printStackTrace();
-						return "ERROR - EFTP1X01 - Unhandled Exception "+e;
+						return "ERROR - EFTP1X01 - Unhandled Exception: "+e;
 			
 					}  
 	
